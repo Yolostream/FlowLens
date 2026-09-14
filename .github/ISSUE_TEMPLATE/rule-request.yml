@@ -1,0 +1,27 @@
+name: Rule request
+description: Propose a new static analysis rule
+title: "[Rule]: "
+labels: [enhancement, new rule]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Short rule name
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What maintainability or governance problem should it detect?
+    validations:
+      required: true
+  - type: textarea
+    id: detection
+    attributes:
+      label: What exact JSON pattern indicates the finding?
+    validations:
+      required: true
+  - type: textarea
+    id: falsepositives
+    attributes:
+      label: Likely false positives and exceptions
