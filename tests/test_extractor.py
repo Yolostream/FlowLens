@@ -1,5 +1,5 @@
+﻿import zipfile
 from pathlib import Path
-import zipfile
 
 import pytest
 
@@ -13,8 +13,12 @@ def test_directory_is_returned(tmp_path: Path):
 
 def test_zip_slip_is_rejected(tmp_path: Path):
     archive = tmp_path / "bad.zip"
+
     with zipfile.ZipFile(archive, "w") as zf:
         zf.writestr("../escape.txt", "no")
-    with pytest.raises(InputError, match="Unsafe archive entry"):
-        with solution_directory(archive):
-            pass
+
+    with (
+        pytest.raises(InputError, match="Unsafe archive entry"),
+        solution_directory(archive),
+    ):
+        pass

@@ -1,6 +1,7 @@
-from pathlib import Path
 import json
-from typing import Any, Iterator
+from collections.abc import Iterator
+from pathlib import Path
+from typing import Any
 
 from .models import Action, Workflow
 

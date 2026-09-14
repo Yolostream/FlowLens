@@ -1,9 +1,9 @@
-import json
 import re
-from typing import Any, Iterator
+from collections.abc import Iterator
+from typing import Any
 
-from .base import Rule
 from ..models import Finding, Workflow
+from .base import Rule
 
 URL = re.compile(r"https?://[^\s\"'<>]+", re.IGNORECASE)
 EMAIL = re.compile(r"(?<![\w.+-])[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}(?![\w.-])", re.IGNORECASE)
